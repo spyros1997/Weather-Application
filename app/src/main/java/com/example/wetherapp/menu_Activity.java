@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class menu_Activity extends AppCompatActivity {
-   //ImageView openweather;
+   ImageView openweather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        /*
+
        openweather = findViewById(R.id.imageView4);
 
         openweather.setOnClickListener(new View.OnClickListener() {
@@ -25,13 +25,13 @@ public class menu_Activity extends AppCompatActivity {
             }
         });
 
-         */
+
     }
-    /*
+
     public  void open_weather_activity(){
-        Intent intent = new Intent(this, menu_Activity.class);
+        Intent intent = new Intent(this, open_weather.class);
         startActivity(intent);
     }
 
-     */
+
 }
