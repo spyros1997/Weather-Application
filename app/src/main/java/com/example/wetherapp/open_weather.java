@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,10 +40,25 @@ public class open_weather extends AppCompatActivity {
         sunriseTxt = findViewById(R.id.sunrise);
         sunsetTxt = findViewById(R.id.sunset);
         windTxt = findViewById(R.id.wind);
-        pressureTxt = findViewById(R.id.pressure);
+
         humidityTxt = findViewById(R.id.humidity);
 
         new weatherTask().execute();
+    }
+    public void refresh(View view){          //refresh is onClick name given to the button
+        onRestart();
+    }
+
+    @Override
+    protected void onRestart() {
+
+        // TODO Auto-generated method stub
+        super.onRestart();
+        finish();
+        overridePendingTransition( 0, 0);
+        startActivity(getIntent());
+        overridePendingTransition( 0, 0);
+
     }
     class weatherTask extends AsyncTask<String, Void, String> {
         @Override
