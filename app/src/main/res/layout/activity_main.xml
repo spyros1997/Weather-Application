@@ -67,7 +67,10 @@
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
         android:layout_marginBottom="194dp"
+        android:background="#BEC3D1"
         android:clickable="true"
         android:text="ΔΕΙΤΕ ΤΟΝ ΚΑΙΡΟ "
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:fontFamily="serif" />
 </RelativeLayout>
