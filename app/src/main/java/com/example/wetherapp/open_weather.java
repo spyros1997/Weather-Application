@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class open_weather extends AppCompatActivity {
 
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
+    ImageView refresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +42,19 @@ public class open_weather extends AppCompatActivity {
         sunriseTxt = findViewById(R.id.sunrise);
         sunsetTxt = findViewById(R.id.sunset);
         windTxt = findViewById(R.id.wind);
-
         humidityTxt = findViewById(R.id.humidity);
+        refresh = findViewById(R.id.refresh);
 
         new weatherTask().execute();
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new weatherTask().execute();
+            }
+        });
     }
+    /*
     public void refresh(View view){          //refresh is onClick name given to the button
         onRestart();
     }
@@ -59,7 +69,8 @@ public class open_weather extends AppCompatActivity {
         startActivity(getIntent());
         overridePendingTransition( 0, 0);
 
-    }
+    }*/
+
     class weatherTask extends AsyncTask<String, Void, String> {
         @Override
         protected void onPreExecute() {
@@ -92,7 +103,7 @@ public class open_weather extends AppCompatActivity {
                 String temp = main.getString("temp") + "°C";
                 String tempMin = "Min Temp: " + main.getString("temp_min") + "°C";
                 String tempMax = "Max Temp: " + main.getString("temp_max") + "°C";
-                String pressure = main.getString("pressure");
+               // String pressure = main.getString("pressure");
                 String humidity = main.getString("humidity");
 
                 Long sunrise = sys.getLong("sunrise");
@@ -113,7 +124,7 @@ public class open_weather extends AppCompatActivity {
                 sunriseTxt.setText(new SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(new Date(sunrise * 1000)));
                 sunsetTxt.setText(new SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(new Date(sunset * 1000)));
                 windTxt.setText(windSpeed);
-                pressureTxt.setText(pressure);
+                //pressureTxt.setText(pressure);
                 humidityTxt.setText(humidity);
 
                 /* Views populated, Hiding the loader, Showing the main design */
