@@ -29,6 +29,7 @@ public class menu_Activity extends AppCompatActivity {
     }
 
     public  void open_weather_activity(){
+        new DbManager(this);
         Intent intent = new Intent(this, open_weather.class);
         startActivity(intent);
     }

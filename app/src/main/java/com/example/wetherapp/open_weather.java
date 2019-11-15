@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class open_weather extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class open_weather extends AppCompatActivity {
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
     ImageView refresh;
+    Button save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class open_weather extends AppCompatActivity {
         windTxt = findViewById(R.id.wind);
         humidityTxt = findViewById(R.id.humidity);
         refresh = findViewById(R.id.refresh);
+        save = findViewById(R.id.button);
 
         new weatherTask().execute();
 
@@ -54,22 +57,14 @@ public class open_weather extends AppCompatActivity {
             }
         });
     }
-    /*
-    public void refresh(View view){          //refresh is onClick name given to the button
-        onRestart();
+
+    public  void addRecord(View view){
+        DbManager db=new DbManager(this);
+        String res=db.addRecord(tempTxt.getText().toString(),temp_minTxt.getText().toString(),temp_maxTxt.getText().toString(),statusTxt.getText().toString(),updated_atTxt.getText().toString());
+        Toast.makeText(this,res,Toast.LENGTH_LONG).show();
+
     }
 
-    @Override
-    protected void onRestart() {
-
-        // TODO Auto-generated method stub
-        super.onRestart();
-        finish();
-        overridePendingTransition( 0, 0);
-        startActivity(getIntent());
-        overridePendingTransition( 0, 0);
-
-    }*/
 
     class weatherTask extends AsyncTask<String, Void, String> {
         @Override
