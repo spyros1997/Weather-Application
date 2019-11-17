@@ -1,0 +1,1 @@
+String response = HttpRequest.excuteGet("HTTP: http://api.weatherbit.io/v2.0/current" + CITY + "&units=metric&appid=" + API);
