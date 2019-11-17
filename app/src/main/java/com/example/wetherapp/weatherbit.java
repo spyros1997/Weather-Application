@@ -4,9 +4,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.androdocs.httprequest.HttpRequest;
@@ -16,9 +15,8 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import android.widget.Toast;
 
 public class weatherbit extends AppCompatActivity {
     String CITY = "Serres,GR";
@@ -26,6 +24,8 @@ public class weatherbit extends AppCompatActivity {
 
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
+    ImageView refresh;
+    Button save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +40,27 @@ public class weatherbit extends AppCompatActivity {
         sunriseTxt = findViewById(R.id.sunrise);
         sunsetTxt = findViewById(R.id.sunset);
         windTxt = findViewById(R.id.wind);
-
+       // refresh = findViewById(R.id.refresh);
+        save = findViewById(R.id.save);
         humidityTxt = findViewById(R.id.humidity);
 
         new weatherbit.weatherTask().execute();
+
+/*
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new weatherbit.weatherTask().execute();
+            }
+        });
+
+ */
+    }
+    public  void addRecord(View view){
+        DbManager db=new DbManager(this);
+        String res=db.addRecord(tempTxt.getText().toString(),temp_minTxt.getText().toString(),temp_maxTxt.getText().toString(),statusTxt.getText().toString(),updated_atTxt.getText().toString());
+        Toast.makeText(this,res,Toast.LENGTH_LONG).show();
+
     }
     class weatherTask extends AsyncTask<String, Void, String> {
         @Override
@@ -57,7 +74,7 @@ public class weatherbit extends AppCompatActivity {
         }
 
         protected String doInBackground(String... args) {
-            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
+            String response = HttpRequest.excuteGet("HTTP: http://api.weatherbit.io/v2.0/current" + CITY + "&units=metric&appid=" + API);
             return response;
         }
 

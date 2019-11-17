@@ -46,7 +46,7 @@ public class open_weather extends AppCompatActivity {
         windTxt = findViewById(R.id.wind);
         humidityTxt = findViewById(R.id.humidity);
         refresh = findViewById(R.id.refresh);
-        save = findViewById(R.id.button);
+        save = findViewById(R.id.save);
 
         new weatherTask().execute();
 
