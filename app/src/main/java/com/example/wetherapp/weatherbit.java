@@ -1,5 +1,7 @@
 package com.example.wetherapp;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +27,7 @@ public class weatherbit extends AppCompatActivity {
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
     ImageView refresh;
-    Button save;
+    Button save, history2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +45,16 @@ public class weatherbit extends AppCompatActivity {
        // refresh = findViewById(R.id.refresh);
         save = findViewById(R.id.save);
         humidityTxt = findViewById(R.id.humidity);
+        history2=findViewById(R.id.history2);
 
         new weatherbit.weatherTask().execute();
+
+        history2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                open_hisrotybit_activity();
+            }
+        });
 
 /*
         refresh.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +65,13 @@ public class weatherbit extends AppCompatActivity {
         });
 
  */
+    }
+
+
+    public  void open_hisrotybit_activity(){
+        new DbManager(this);
+        Intent intent4 = new Intent(this, historyBit_Activity.class);
+        startActivity(intent4);
     }
     public  void addRecord(View view){
         DbManager db=new DbManager(this);
