@@ -1,6 +1,8 @@
 package com.example.wetherapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +31,7 @@ public class open_weather extends AppCompatActivity {
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
     ImageView refresh;
-    Button save;
+    Button save, history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class open_weather extends AppCompatActivity {
         humidityTxt = findViewById(R.id.humidity);
         refresh = findViewById(R.id.refresh);
         save = findViewById(R.id.save);
+        history= findViewById(R.id.history);
 
         new weatherTask().execute();
 
@@ -56,6 +59,20 @@ public class open_weather extends AppCompatActivity {
                 new weatherTask().execute();
             }
         });
+
+
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                open_hisroty_activity();
+
+            }
+        });
+    }
+    public  void open_hisroty_activity(){
+        new DbManager(this);
+        Intent intent3 = new Intent(this, History_Activity.class);
+        startActivity(intent3);
     }
 
     public  void addRecord(View view){
