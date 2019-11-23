@@ -2,6 +2,7 @@ package com.example.wetherapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -43,6 +44,15 @@ public class DbManager extends SQLiteOpenHelper {
             return  "Αποτυχία Αποθήκευσης";
         else
             return "Επιτυχής Αποθήκευση ";
+
+    }
+
+
+
+    public Cursor ViewData(){
+        SQLiteDatabase db2 = this.getReadableDatabase();
+        Cursor cursor = db2.rawQuery("select * from tb1_weather",null);
+        return  cursor;
 
     }
 }

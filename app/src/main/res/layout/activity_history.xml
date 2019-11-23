@@ -13,9 +13,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginBottom="-3dp"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/historybg" />
 
@@ -58,4 +60,19 @@
         android:text="ΗΜ/ΝΙΑ: ΜΜ/ΜΜ/ΕΕ"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/datalist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="8dp" />
+
 </RelativeLayout>
