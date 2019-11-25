@@ -7,6 +7,7 @@
     tools:context=".History_Activity">
 
     <ImageView
+        android:autofillHints="Αναζήτηση"
         android:id="@+id/imageView6"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,32 +21,6 @@
         android:layout_marginBottom="-3dp"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/historybg" />
-
-    <EditText
-        android:id="@+id/datetxt"
-        android:layout_width="196dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
-        android:ems="10"
-        android:inputType="date"
-        android:textColorLink="#FD000000" />
-
-    <Button
-        android:id="@+id/search"
-        android:layout_width="134dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginTop="140dp"
-        android:text="ΑΝΑΖΗΤΗΣΗ" />
 
     <TextView
         android:id="@+id/textView5"
@@ -74,5 +49,17 @@
         android:layout_marginLeft="3dp"
         android:layout_marginTop="200dp"
         android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="205dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:text="Αναζήτηση" />
 
 </RelativeLayout>
