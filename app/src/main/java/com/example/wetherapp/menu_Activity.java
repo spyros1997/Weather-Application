@@ -29,7 +29,7 @@ public class menu_Activity extends AppCompatActivity {
         weatherbit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open_weatherbit_activity();
+                weatherbit_activity();
             }
         });
 
@@ -42,7 +42,7 @@ public class menu_Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public  void open_weatherbit_activity(){
+    public  void weatherbit_activity(){
         new DbManager(this);
         Intent intent2 = new Intent(this, weatherbit.class);
         startActivity(intent2);

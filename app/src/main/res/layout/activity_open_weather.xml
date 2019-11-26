@@ -26,10 +26,13 @@
             android:layout_height="wrap_content" android:orientation="vertical"
             android:layout_centerInParent="true">
 
-            <TextView android:id="@+id/status" android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="18dp"
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Clear Sky"/>
+                android:text="Καθαρος Ουρανος"
+                android:textSize="18dp" />
             <TextView android:id="@+id/temp" android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:textSize="90dp"
                 android:fontFamily="sans-serif-thin" android:layout_gravity="center"
@@ -188,12 +191,46 @@
             android:clickable="true"
             app:srcCompat="@drawable/refresh" />
 
+        <TextView
+            android:id="@+id/latTextView"
+            android:layout_width="85dp"
+            android:layout_height="88dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="115dp"
+            android:text="Latitude: "
+            tools:text="Latitude: " />
+
+        <TextView
+            android:id="@+id/lonTextView"
+            android:layout_width="69dp"
+            android:layout_height="88dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp"
+
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="142dp"
+            android:text="Longitude: "
+            tools:text="Longitude: " />
+
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_width="63dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="338dp"
+            android:layout_marginLeft="338dp"
+            android:layout_marginTop="132dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility="visible" />
+
     </RelativeLayout>
 
-
-    <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_centerInParent="true"
-        android:visibility="gone"/>
 
     <TextView android:id="@+id/errorText" android:layout_width="wrap_content"
         android:layout_height="wrap_content" android:layout_centerInParent="true"

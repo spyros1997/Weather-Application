@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 
 import com.androdocs.httprequest.HttpRequest;
 import org.json.JSONException;
@@ -17,12 +19,12 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
+import android.os.Bundle;
 import android.widget.Toast;
 
 public class weatherbit extends AppCompatActivity {
     String CITY = "Serres,GR";
-    String API = "1a5f81a7a64345ab98036e8b5e713829";
+    String API = "03367c6a75b96ab43e0bc23a8a1dd6e1";
 
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
@@ -42,12 +44,12 @@ public class weatherbit extends AppCompatActivity {
         sunriseTxt = findViewById(R.id.sunrise);
         sunsetTxt = findViewById(R.id.sunset);
         windTxt = findViewById(R.id.wind);
-       // refresh = findViewById(R.id.refresh);
+        refresh = findViewById(R.id.refresh);
         save = findViewById(R.id.save);
         humidityTxt = findViewById(R.id.humidity);
         history2=findViewById(R.id.history2);
 
-        new weatherbit.weatherTask().execute();
+        new weatherTask().execute();
 
         history2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +58,7 @@ public class weatherbit extends AppCompatActivity {
             }
         });
 
-/*
+
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +66,7 @@ public class weatherbit extends AppCompatActivity {
             }
         });
 
- */
+
     }
 
 
@@ -91,7 +93,7 @@ public class weatherbit extends AppCompatActivity {
         }
 
         protected String doInBackground(String... args) {
-            String response = HttpRequest.excuteGet("HTTP: http://api.weatherbit.io/v2.0/current" + CITY + "&units=metric&appid=" + API);
+            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
             return response;
         }
 
@@ -111,7 +113,7 @@ public class weatherbit extends AppCompatActivity {
                 String temp = main.getString("temp") + "°C";
                 String tempMin = "Min Temp: " + main.getString("temp_min") + "°C";
                 String tempMax = "Max Temp: " + main.getString("temp_max") + "°C";
-                String pressure = main.getString("pressure");
+                // String pressure = main.getString("pressure");
                 String humidity = main.getString("humidity");
 
                 Long sunrise = sys.getLong("sunrise");
@@ -132,7 +134,7 @@ public class weatherbit extends AppCompatActivity {
                 sunriseTxt.setText(new SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(new Date(sunrise * 1000)));
                 sunsetTxt.setText(new SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(new Date(sunset * 1000)));
                 windTxt.setText(windSpeed);
-                pressureTxt.setText(pressure);
+                //pressureTxt.setText(pressure);
                 humidityTxt.setText(humidity);
 
                 /* Views populated, Hiding the loader, Showing the main design */
