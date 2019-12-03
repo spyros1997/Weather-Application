@@ -1,0 +1,4 @@
+protected String doInBackground(String... args) {
+            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?lat=41.0864&lon=23.5484&units=metric&appid=" + API);
+            return response;
+        }
