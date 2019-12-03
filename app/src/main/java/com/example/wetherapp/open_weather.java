@@ -41,9 +41,8 @@ public class open_weather extends AppCompatActivity {
     String LON ="23.5484";
 
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
-            sunsetTxt, windTxt, pressureTxt, humidityTxt;
-    ImageView refresh;
-    Button save, history;
+            sunsetTxt, windTxt, pressureTxt, humidityTxt ,F ;
+    ImageView refresh , saveimg, historyimg;
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
     TextView latTextView, lonTextView;
@@ -63,15 +62,18 @@ public class open_weather extends AppCompatActivity {
         windTxt = findViewById(R.id.wind);
         humidityTxt = findViewById(R.id.humidity);
         refresh = findViewById(R.id.refresh);
-        save = findViewById(R.id.save);
-        history= findViewById(R.id.history);
         latTextView = findViewById(R.id.latTextView);
         lonTextView = findViewById(R.id.lonTextView);
+        F = findViewById(R.id.F);
+        saveimg = findViewById(R.id.saveimg);
+        historyimg = findViewById(R.id.historyimg);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         getLastLocation();
 
         new weatherTask().execute();
+
+
 
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,16 +82,39 @@ public class open_weather extends AppCompatActivity {
             }
         });
 
-
-        history.setOnClickListener(new View.OnClickListener() {
+        historyimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 open_hisroty_activity();
+            }
+        });
+
+
+        F.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fconvert();
+                tempTxt.setText(tempTxt.getText()+"°C");
 
             }
         });
     }
 
+    public  void Fconvert(){
+        double result, temp;
+            temp = Double.parseDouble(tempTxt.getText().toString());
+
+            result = (temp * 1.8) + 32;
+            F.setText(String.valueOf(result)+"°F");
+    }
+
+    public void Cconvert(){
+        double resultc , tempc;
+        tempc = Double.parseDouble(tempTxt.getText().toString());
+
+        resultc = (tempc - 32) / 1.8;
+        tempTxt.setText(String.valueOf(resultc)+"°C");
+    }
     public  void open_hisroty_activity(){
         new DbManager(this);
         Intent intent3 = new Intent(this, History_Activity.class);
@@ -232,7 +257,7 @@ public class open_weather extends AppCompatActivity {
 
                 Long updatedAt = jsonObj.getLong("dt");
                 String updatedAtText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
-                String temp = main.getString("temp") + "°C";
+                String temp = main.getString("temp") ;
                 String tempMin = "Min Temp: " + main.getString("temp_min") + "°C";
                 String tempMax = "Max Temp: " + main.getString("temp_max") + "°C";
                // String pressure = main.getString("pressure");

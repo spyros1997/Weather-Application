@@ -31,10 +31,16 @@
                 android:layout_gravity="center"
                 android:text="Καθαρος Ουρανος"
                 android:textSize="18dp" />
-            <TextView android:id="@+id/temp" android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="90dp"
-                android:fontFamily="sans-serif-thin" android:layout_gravity="center"
-                android:text="29°C"/>
+
+            <TextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:fontFamily="sans-serif-thin"
+                android:text="29"
+                android:textSize="90dp" />
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center">
@@ -45,6 +51,15 @@
                 <TextView android:id="@+id/temp_max" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="Max Temp: 05:05 PM"/>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/F"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="Fahreneit"
+                android:textColor="#0C0C0C"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
@@ -117,13 +132,9 @@
                 android:orientation="horizontal"
                 android:weightSum="3">
 
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content" />
-
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#3CF1EBF1"
                     android:gravity="center"
@@ -146,6 +157,7 @@
                         android:text="Υγρασία"
                         android:textSize="12dp" />
 
+
                     <TextView
                         android:id="@+id/humidity"
                         android:layout_width="wrap_content"
@@ -158,20 +170,75 @@
                     android:layout_width="10dp"
                     android:layout_height="wrap_content" />
 
-                <Button
-                    android:id="@+id/save"
-                    android:layout_width="51dp"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:layout_width="7dp"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:onClick="addRecord"
-                    android:text="Αποθήκευση" />
+                    android:background="#3CF1EBF1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-                <Button
-                    android:id="@+id/history"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    <ImageView
+                        android:id="@+id/saveimg"
+                        android:layout_width="42dp"
+                        android:layout_height="43dp"
+                        android:clickable="true"
+                        android:onClick="addRecord"
+                        android:tint="#FFFFFF"
+                        app:srcCompat="@drawable/saveicon"
+                        tools:srcCompat="@drawable/saveicon" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Αποθήκευση"
+                        android:textSize="12dp" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="5dp" />
+
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="ΙΣΤΟΡΙΚΟ" />
+                    android:background="#3CF1EBF1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/historyimg"
+                        android:layout_width="42dp"
+                        android:layout_height="43dp"
+                        android:clickable="true"
+                        android:onClick="addRecord"
+                        android:tint="#FFFFFF"
+                        app:srcCompat="@drawable/historyicon"
+                        tools:srcCompat="@drawable/historyicon" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ιστορικό"
+                        android:textSize="12dp" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="5dp" />
+
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
@@ -188,33 +255,6 @@
             android:layout_marginTop="73dp"
             android:clickable="true"
             app:srcCompat="@drawable/refresh" />
-
-        <TextView
-            android:id="@+id/latTextView"
-            android:layout_width="85dp"
-            android:layout_height="88dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="115dp"
-            android:text="Latitude: "
-            tools:text="Latitude: " />
-
-        <TextView
-            android:id="@+id/lonTextView"
-            android:layout_width="69dp"
-            android:layout_height="88dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="40dp"
-
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="142dp"
-            android:text="Longitude: "
-            tools:text="Longitude: " />
 
         <ProgressBar
             android:id="@+id/loader"
