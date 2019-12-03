@@ -37,6 +37,8 @@ public class open_weather extends AppCompatActivity {
 
     String CITY = "Serres,GR";
     String API = "03367c6a75b96ab43e0bc23a8a1dd6e1";
+    String LAT ="41.0864";
+    String LON ="23.5484";
 
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
@@ -213,7 +215,7 @@ public class open_weather extends AppCompatActivity {
         }
 
         protected String doInBackground(String... args) {
-            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
+            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?lat=41.0864&lon=23.5484&units=metric&appid=" + API);
             return response;
         }
 
