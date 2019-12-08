@@ -45,7 +45,7 @@ public class open_weather extends AppCompatActivity {
     ImageView refresh , saveimg, historyimg;
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
-    TextView latTextView, lonTextView;
+    //TextView latTextView, lonTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +62,8 @@ public class open_weather extends AppCompatActivity {
         windTxt = findViewById(R.id.wind);
         humidityTxt = findViewById(R.id.humidity);
         refresh = findViewById(R.id.refresh);
-        latTextView = findViewById(R.id.latTextView);
-        lonTextView = findViewById(R.id.lonTextView);
+       // latTextView = findViewById(R.id.latTextView);
+        //lonTextView = findViewById(R.id.lonTextView);
         F = findViewById(R.id.F);
         saveimg = findViewById(R.id.saveimg);
         historyimg = findViewById(R.id.historyimg);
@@ -134,8 +134,8 @@ public class open_weather extends AppCompatActivity {
                                 if (location == null) {
                                     requestNewLocationData();
                                 } else {
-                                    latTextView.setText(location.getLatitude()+"");
-                                    lonTextView.setText(location.getLongitude()+"");
+                                   // latTextView.setText(location.getLatitude()+"");
+                                   // lonTextView.setText(location.getLongitude()+"");
                                 }
                             }
                         }
@@ -172,8 +172,8 @@ public class open_weather extends AppCompatActivity {
         @Override
         public void onLocationResult(LocationResult locationResult) {
             Location mLastLocation = locationResult.getLastLocation();
-            latTextView.setText(mLastLocation.getLatitude()+"");
-            lonTextView.setText(mLastLocation.getLongitude()+"");
+            //latTextView.setText(mLastLocation.getLatitude()+"");
+            //lonTextView.setText(mLastLocation.getLongitude()+"");
         }
     };
 
