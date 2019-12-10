@@ -61,6 +61,14 @@
                 android:textColor="#0C0C0C"
                 android:textSize="24sp" />
 
+            <Switch
+                android:id="@+id/switch2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addRecord"
+                android:text="Αυτόματη Αποθήκευση"
+                android:textOn="Κάθε 8 ώρες" />
+
         </LinearLayout>
 
 

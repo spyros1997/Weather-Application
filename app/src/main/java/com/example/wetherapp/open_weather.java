@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,6 +15,9 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -98,7 +102,25 @@ public class open_weather extends AppCompatActivity {
 
             }
         });
+
     }
+
+    public void autosave(){
+        Timer timer = new Timer();
+
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+
+
+
+            }
+        };
+
+        timer.schedule(timerTask,0,28800);
+
+    };
+
 
     public  void Fconvert(){
         double result, temp;
@@ -120,6 +142,8 @@ public class open_weather extends AppCompatActivity {
         Intent intent3 = new Intent(this, History_Activity.class);
         startActivity(intent3);
     }
+
+
 
 
     @SuppressLint("MissingPermission")
