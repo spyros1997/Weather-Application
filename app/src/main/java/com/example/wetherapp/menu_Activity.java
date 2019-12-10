@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class menu_Activity extends AppCompatActivity {
-   ImageView openweather, weatherbit, accu;
+   ImageView openweather, accu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,6 @@ public class menu_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
        openweather = findViewById(R.id.imageView4);
-       weatherbit = findViewById(R.id.imageView5);
        accu = findViewById(R.id.accu);
 
         openweather.setOnClickListener(new View.OnClickListener() {
@@ -27,12 +26,7 @@ public class menu_Activity extends AppCompatActivity {
             }
         });
 
-        weatherbit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                weatherbit_activity();
-            }
-        });
+
         accu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,11 +44,6 @@ public class menu_Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public  void weatherbit_activity(){
-        new DbManager(this);
-        Intent intent2 = new Intent(this, weatherbit.class);
-        startActivity(intent2);
-    }
 
     public  void accuweather_activity(){
         new DbManager(this);

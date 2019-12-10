@@ -17,7 +17,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".Accuweather"></activity>
-        <activity android:name=".weatherbit" />
         <activity android:name=".historyBit_Activity" />
         <activity android:name=".History_Activity" />
         <activity android:name=".open_weather" />

@@ -33,19 +33,6 @@
         android:clickable="true"
         app:srcCompat="@drawable/openweathermap" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="130dp"
-        android:layout_height="200dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="196dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
-        android:clickable="true"
-        app:srcCompat="@drawable/sun" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -61,10 +48,12 @@
         android:layout_height="129dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginBottom="223dp"
+        android:layout_marginStart="201dp"
+        android:layout_marginLeft="201dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="385dp"
         android:clickable="true"
         app:srcCompat="@drawable/accu" />
 </RelativeLayout>

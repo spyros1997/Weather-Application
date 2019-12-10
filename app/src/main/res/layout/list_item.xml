@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="2017-11-29"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#0C0C0C"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Temperature"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#0C0C0C"
         android:textSize="18sp"
         android:textStyle="italic" />
 
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="High"
-            android:textColor="@color/colorAccent"
+            android:textColor="#0C0C0C"
             android:textSize="18sp"
             android:textStyle="normal" />
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="33"
-            android:textColor="@color/colorAccent"
+            android:textColor="#0C0C0C"
             android:textSize="18sp"
             android:textStyle="normal" />
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="Low"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="#111111"
             android:textSize="18sp"
             android:textStyle="normal" />
 
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="23"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="#0C0C0C"
             android:textSize="18sp"
             android:textStyle="normal" />
 
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="Link "
-            android:textColor="@color/colorPrimary"
+            android:textColor="#0C0C0C"
             android:textSize="18sp"
             android:textStyle="normal" />
 
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="http://......"
-            android:textColor="@color/colorPrimary"
+            android:textColor="#0C0C0C"
             android:textSize="18sp"
             android:textStyle="normal" />
 
