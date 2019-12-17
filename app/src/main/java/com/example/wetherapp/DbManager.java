@@ -18,7 +18,7 @@ public class DbManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String qry="create table tb1_weather (id integer primary key autoincrement, tempe text, min_tempe text, max_tempe text, decs text, date text)";
+        String qry="create table tb1_weather (id integer primary key autoincrement, tempe text, min_tempe text, max_tempe text, decs text, date text, city text)";
         db.execSQL(qry);
 
     }
@@ -30,7 +30,7 @@ public class DbManager extends SQLiteOpenHelper {
 
     }
 
-    public  String addRecord(String p1, String p2, String p3, String p4, String p5){
+    public  String addRecord(String p1, String p2, String p3, String p4, String p5, String p6){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv=new ContentValues();
         cv.put("tempe",p1);
@@ -38,6 +38,7 @@ public class DbManager extends SQLiteOpenHelper {
         cv.put("max_tempe",p3);
         cv.put("decs",p4);
         cv.put("date",p5);
+        cv.put("city",p6);
         long res=db.insert("tb1_weather",null,cv);
 
         if (res ==1)

@@ -84,7 +84,7 @@ public class History_Activity extends AppCompatActivity {
             Toast.makeText(this,"Δεν βρέθηκαν δεδομένα",Toast.LENGTH_SHORT).show();
         }else{
             while(cursor.moveToNext()){
-                listItem.add("Θερμοκρασία: "+cursor.getString(1)+"\n"+cursor.getString(2)+"\n"+cursor.getString(3)+"\n"+cursor.getString(4)+"\n"+cursor.getString(5)+"\n\n");
+                listItem.add("Θερμοκρασία: "+cursor.getString(1)+"\n"+cursor.getString(2)+"\n"+cursor.getString(3)+"\n"+cursor.getString(4)+"\n"+cursor.getString(5)+"\n"+"Πόλη: "+cursor.getString(6)+"\n");
             }
 
             adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItem);
